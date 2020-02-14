@@ -1,0 +1,29 @@
+{
+  "name": "library",
+  "version": "0.0.0",
+  "description": "A short description of the library",
+  "rollup": {
+    "main": "dist/library.js",
+    "module": "dist/library.es.js",
+    "browser": "dist/library.min.js"
+  },
+  "repository": "https://github.com/ezra-obiwale/npm-library",
+  "author": "Ezra Obiwale",
+  "license": "MIT",
+  "main": "dist/library.es.js",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-multi-entry": "^3.0.0",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "rollup": "^1.29.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-terser": "^5.2.0"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "build:watch": "rollup -cw"
+  },
+  "dependencies": {}
+}
