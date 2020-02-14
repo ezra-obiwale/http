@@ -1,6 +1,6 @@
 # NPM Library
 
-A template for building node.js npm libaries with webpack and rollup.
+A template for building nodejs npm libaries with webpack and rollup.
 
 ## Features
 
