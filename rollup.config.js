@@ -6,7 +6,7 @@ import pkg from './package.json'
 
 let name = pkg.name.replace(/[^a-z\/]/gi, '')
 
-if (name.index('/') !== -1) {
+if (name.indexOf('/') !== -1) {
   name = name.split('/')[1]
 }
 
