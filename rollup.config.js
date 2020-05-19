@@ -1,6 +1,9 @@
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
+import builtins from 'rollup-plugin-node-builtins'
+import globals from 'rollup-plugin-node-globals'
 import babel from 'rollup-plugin-babel'
+import json from '@rollup/plugin-json'
 import { terser } from 'rollup-plugin-terser'
 import pkg from './package.json'
 
@@ -28,8 +31,11 @@ export default {
     }
   ],
   plugins: [
+    builtins(),
+    globals(),
     resolve(),
     commonjs(),
+    json(),
     babel({
       exclude: 'node_modules/**' // only transpile our source code
     }),
