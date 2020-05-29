@@ -1,14 +1,14 @@
-import axios from 'axios'
+const axios = require('axios')
 
 const sendRequest = function (type, args) {
   const responseParams = (resp) => {
     try {
       return [resp.data, resp.status, resp.headers, resp]
     } catch (e) {
-      console.error(e)
-      return []
+      return [e]
     }
   }
+
   let promise = new Promise(
     function (resolve, reject) {
       this.axios[type](...args)
@@ -17,16 +17,27 @@ const sendRequest = function (type, args) {
             this.runBeforeResponse(resp)
             resolve(...responseParams(resp))
           } catch (e) {
-            console.error(e)
+            console.error('http', e.message)
           }
         })
         .catch((error) => {
           try {
-            let resp = error.response
+            let resp = {
+              status: -1,
+              data: {
+                message: error.request ? 'No response received' : error.message,
+              },
+              headers: [],
+            }
+
+            if (error.response) {
+              resp = error.response
+            }
+
             this.runBeforeResponse(resp, error)
             reject(...responseParams(resp))
           } catch (e) {
-            console.error(e)
+            console.error('http', e.message)
           }
         })
     }.bind(this)

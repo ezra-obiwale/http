@@ -29,7 +29,7 @@ export default {
     },
   ],
   plugins: [
-    resolve({ jsnext: true, preferBuiltins: true, browser: true }),
+    resolve({ jsnext: true, preferBuiltins: true }),
     json(),
     commonjs(),
     babel({
