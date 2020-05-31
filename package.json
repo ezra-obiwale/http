@@ -1,6 +1,6 @@
 {
   "name": "@ezraobiwale/http",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "A wrapper around axios",
   "repository": {
     "type": "git",
@@ -31,7 +31,6 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "build:watch": "rollup -cw",
-    "prepublish": "yarn build"
+    "build:watch": "rollup -cw"
   }
 }
