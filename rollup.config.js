@@ -11,30 +11,40 @@ if (name.indexOf('/') !== -1) {
   name = name.split('/')[1]
 }
 
-export default {
-  input: 'src/index.js',
-  output: [
-    {
-      file: pkg.rollup.main,
-      format: 'cjs',
-    },
-    {
-      file: pkg.rollup.module,
-      format: 'es',
-    },
-    {
-      file: pkg.rollup.browser,
-      format: 'iife',
-      name: name,
-    },
-  ],
-  plugins: [
-    resolve({ jsnext: true, preferBuiltins: true }),
+const plugins = (browser = false) => {
+  return [
+    resolve({ browser }),
     json(),
     commonjs(),
     babel({
       exclude: 'node_modules/**', // only transpile our source code
     }),
     terser(),
-  ],
+  ]
 }
+
+export default [
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        file: pkg.main,
+        format: 'cjs',
+      },
+      {
+        file: pkg.module,
+        format: 'es',
+      },
+    ],
+    plugins: plugins(),
+  },
+  {
+    input: 'src/index.js',
+    output: {
+      file: pkg.browser,
+      format: 'iife',
+      name: name,
+    },
+    plugins: plugins(true),
+  },
+]

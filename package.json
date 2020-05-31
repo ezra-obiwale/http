@@ -2,11 +2,6 @@
   "name": "@ezraobiwale/http",
   "version": "1.3.2",
   "description": "A wrapper around axios",
-  "rollup": {
-    "main": "dist/http.js",
-    "module": "dist/http.es.js",
-    "browser": "dist/http.min.js"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ezra-obiwale/http.git"
@@ -17,7 +12,9 @@
     "email": "contact@ezraobiwale.com"
   },
   "license": "MIT",
-  "main": "dist/http.es.js",
+  "main": "dist/http.js",
+  "module": "dist/http.es.js",
+  "browser": "dist/http.min.js",
   "dependencies": {
     "axios": "^0.18.0"
   },
@@ -34,6 +31,7 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "build:watch": "rollup -cw"
+    "build:watch": "rollup -cw",
+    "prepublish": "yarn build"
   }
 }
