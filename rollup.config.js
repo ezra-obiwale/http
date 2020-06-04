@@ -28,11 +28,11 @@ export default [
     input: 'src/index.js',
     output: [
       {
-        file: pkg.main,
+        file: pkg.nodeMain,
         format: 'cjs',
       },
       {
-        file: pkg.module,
+        file: pkg.nodeModule,
         format: 'es',
       },
     ],
@@ -42,11 +42,11 @@ export default [
     input: 'src/index.js',
     output: [
       {
-        file: pkg.webMain,
+        file: pkg.main,
         format: 'cjs',
       },
       {
-        file: pkg.webModule,
+        file: pkg.module,
         format: 'es',
       },
       {
