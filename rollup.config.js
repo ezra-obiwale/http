@@ -19,7 +19,7 @@ const plugins = (browser = false) => {
     babel({
       exclude: 'node_modules/**', // only transpile our source code
     }),
-    terser(),
+    // terser(),
   ]
 }
 
@@ -40,11 +40,21 @@ export default [
   },
   {
     input: 'src/index.js',
-    output: {
-      file: pkg.browser,
-      format: 'iife',
-      name: name,
-    },
+    output: [
+      {
+        file: pkg.webMain,
+        format: 'cjs',
+      },
+      {
+        file: pkg.webModule,
+        format: 'es',
+      },
+      {
+        file: pkg.browser,
+        format: 'iife',
+        name: name,
+      },
+    ],
     plugins: plugins(true),
   },
 ]
