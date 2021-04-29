@@ -18,7 +18,7 @@
   "nodeMain": "dist/node-http.js",
   "nodeModule": "dist/node-http.es.js",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",
