@@ -8,12 +8,26 @@ A wrapper around axios
 yarn add @ezraobiwale/http
 ```
 
+or
+
+```
+<script src="https://cdn.jsdelivr.net/npm/@ezraobiwale/http@2.0.1/dist/http.js"></script>
+```
+
 ## Usage
+
+1. In node js app:
 
 ```
 const Http = require('@ezraobiwale/http')
 
 const http = new Http()
+```
+
+2. In browser app:
+
+```
+const http = new window.Http()
 ```
 
 ## Features
