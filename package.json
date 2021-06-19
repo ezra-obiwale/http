@@ -1,6 +1,6 @@
 {
   "name": "@ezraobiwale/http",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "A wrapper around axios",
   "repository": {
     "type": "git",
@@ -13,12 +13,8 @@
   },
   "license": "MIT",
   "main": "dist/http.js",
-  "module": "dist/http.es.js",
-  "browser": "dist/http.min.js",
-  "nodeMain": "dist/node-http.js",
-  "nodeModule": "dist/node-http.es.js",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.21.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.3",

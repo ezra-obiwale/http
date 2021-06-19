@@ -11,50 +11,24 @@ if (name.indexOf('/') !== -1) {
   name = name.split('/')[1]
 }
 
-const plugins = (browser = false) => {
-  return [
-    resolve({ browser }),
-    json(),
-    commonjs(),
-    babel({
-      exclude: 'node_modules/**', // only transpile our source code
-    }),
-    // terser(),
-  ]
-}
-
 export default [
   {
     input: 'src/index.js',
     output: [
       {
-        file: pkg.nodeMain,
-        format: 'cjs',
-      },
-      {
-        file: pkg.nodeModule,
-        format: 'es',
-      },
-    ],
-    plugins: plugins(),
-  },
-  {
-    input: 'src/index.js',
-    output: [
-      {
         file: pkg.main,
-        format: 'cjs',
-      },
-      {
-        file: pkg.module,
-        format: 'es',
-      },
-      {
-        file: pkg.browser,
-        format: 'iife',
-        name: name,
+        format: 'umd',
+        name
       },
     ],
-    plugins: plugins(true),
+    plugins: [
+      resolve(),
+      json(),
+      commonjs(),
+      babel({
+        exclude: 'node_modules/**', // only transpile our source code
+      }),
+      terser(),
+    ],
   },
 ]
