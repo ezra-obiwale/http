@@ -1,18 +1,27 @@
-# NPM Library
+# Http
 
-A template for building nodejs npm libaries with webpack and rollup.
+A wrapper around axios
 
-## Features
+## Installation
 
-- Handles ES6 transpiling
-- Bundles for browser and commonjs
-- Minimizes built files
-- Publishes on the built files to npmjs.org
-- Excludes the built files from being committed to git
+```
+yarn add @ezraobiwale/http
+```
 
 ## Usage
 
-1. Change all instances of **library** in the `package.json` file to the name of
-   the library being built.
-2. Write your code on `src/index.js` file.
-3. Run `yarn build` to build files for distribution.
+```
+const Http = require('@ezraobiwale/http')
+
+const http = new Http()
+```
+
+## Features
+
+Supports all features of axios, with a few additional methods:
+
+- `beforeResponse(fn)`: Accepts a function to call on all responses before resolving. The response can be tweaked here.
+- `setHeader(key, value)`: Sets a header for all requests
+- `removeHeader(key)`: Removes a previously header from all requests
+- `setGlobalCatch(fn)`: Accepts a function to process all request errors
+- `skipGlobalCatch()`: Indicates that the global catch should not apply to the next request.
